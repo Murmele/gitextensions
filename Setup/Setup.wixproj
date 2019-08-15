@@ -100,7 +100,15 @@
     <Error Condition="!Exists('..\packages\WiX.3.11.0\build\wix.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WiX.3.11.0\build\wix.props'))" />
   </Target>
   <Target Name="BeforeBuild">
-    <Exec Command="&#xD;&#xA;	call BuildGitExtNative.cmd $(Configuration) build">
+    <Exec Command="pushd ..\GitExtensionsShellEx
+msbuild GitExtensionsShellEx.sln /p:Platform=Win32 /p:Configuration=$(Configuration) /t:Build /nologo /v:m
+
+pushd ..\GitExtensionsShellEx
+msbuild GitExtensionsShellEx.sln /p:Platform=x64 /p:Configuration=$(Configuration) /t:Build /nologo /v:m
+
+pushd ..\GitExtSshAskPass
+msbuild GitExtSshAskPass.sln /p:Platform=Win32 /p:Configuration=$(Configuration) /t:Build /nologo /v:m
+">
     </Exec>
   </Target>
   <!--

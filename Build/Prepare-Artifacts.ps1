@@ -27,7 +27,7 @@ if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
 # sign artifacts
 # -------------------------------
 # do not sign artifacts for non-release branches
-if ($env:APPVEYOR_PULL_REQUEST_TITLE -eq $true) {
+if ($env:APPVEYOR_PULL_REQUEST_TITLE) {
     return
 }
 
