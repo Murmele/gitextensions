@@ -108,6 +108,11 @@ msbuild GitExtensionsShellEx.sln /p:Platform=x64 /p:Configuration=$(Configuratio
 
 pushd ..\GitExtSshAskPass
 msbuild GitExtSshAskPass.sln /p:Platform=Win32 /p:Configuration=$(Configuration) /t:Build /nologo /v:m
+
+rmdir ..\GitExtensionsVSIX\bin\Release /s /q
+pushd ..\GitExtensionsVSIX
+msbuild /p:Configuration=$(Configuration) /t:Build /nologo /v:m /bl
+popd
 ">
     </Exec>
   </Target>

@@ -12,5 +12,5 @@ set solution=..\GitExtensions.sln
 ..\.nuget\nuget.exe restore -Verbosity Quiet %solution%
 set msbuildparams=/p:Configuration=%Configuration% /t:Rebuild /nologo /v:m
 
-%msbuild32% %solution% /p:Platform="Any CPU" %msbuildparams%
+%msbuild32% %solution% /p:Platform="Any CPU" %msbuildparams% /bl
 IF ERRORLEVEL 1 EXIT /B 1
