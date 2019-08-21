@@ -38,7 +38,6 @@ try {
     if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
     Copy-Item -Path .\bin\$Configuration\GitExtensions.msi -Destination $PSScriptRoot/../GitExtensions-$Version.msi -Force
 
-    #& .\MakeInstallers.cmd $Configuration $BuildType
     if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
 
     if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
